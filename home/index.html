@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>AimWire</title>
+    
+    <link rel="stylesheet" href="{%static 'home/style.css' %}">
+</head>
+
+<body onload="slider()">
+    <main>
+        <div class="banner">
+            <div class="slider">
+                {% load static %}
+                <img src="{% static 'home/images/2.jpg' %}" alt="photo" id="SlideImg">
+            </div>
+            <div class="overlay">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="{% static 'home/images/logo2.png' %}" alt="logo">
+                    </div>
+                    <div class="search">
+                        <input type="text" class="text" placeholder="Search Here..."
+                            style="width: 200px; font-weight:500px;">
+                        <div class="btn">
+                            <a href="#"><i style="font-size:20px" class="fa">&#xf002;</i></a>
+                        </div>
+                    </div>
+                    <div class="menu-icons">
+                        <img src="{%static 'home/images/home.png' %}" alt="icon" id="img1">
+                        <img src="{%static 'home/images/User.png' %}" alt="icon" id="img2">
+                        <img src="{%static 'home/images/bell.png' %}" alt="icon" id="img3">
+                    </div>
+                </div>
+                <div class="content">
+                    <h1>Lets make your <span style="color: #fe7250">DREAMS</span> come true!</h1>
+                    <h3>We promise a <span style="color: #fe7250">POSITIVE/NON-TOXIC</span> platform solely for your
+                        personal development and making an effect not only in your life but in other people's lives
+                        too...</h3>
+                    <div>
+                        <button type="button" class="BTN"><a href="{% url 'signup' %}" style="color:black">Sign Up</a></button>
+                        <button type="button" class="BTN"> Explore </button>
+                        <!-- <button type="button"> Blogs </button>
+                      <button type="button"> Journal </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var SlideImg = document.getElementById("SlideImg");
+            var images = new Array(
+                "{%static 'home/images/2.jpg' %}",
+                "{%static 'home/images/4.jpg' %}",
+                "{%static 'home/images/3.jpg' %}",
+                "{%static 'home/images/1.jpg' %}",
+                "{%static 'home/images/5.jpg' %}",
+                "{%static 'home/images/6.jpg' %}",
+                "{%static 'home/images/7.jpg' %}"
+
+            );
+
+            var len = images.length;
+            var i = 0;
+
+            function slider() {
+                if (i > len - 1) {
+                    i = 0;
+                }
+                SlideImg.src = images[i];
+                i++;
+                setTimeout('slider()', 3000);
+            }
+        </script>
+
+    </main>
+    <footer>
+        <p class="text-center"> Copyright &copy; AimWire</p>
+    </footer>
+
+</body>
+
+</html>
